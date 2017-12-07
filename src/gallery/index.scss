@@ -18,25 +18,15 @@
             display: inline;
         }
     }
-    &__row {
-        position: absolute;
-        width: 50px;
-        height: 50px;
-        background-color: rgba(0, 0, 0, 0);
-        border: 0px;
-        color: white;
-        font-size: 40px;
-    }
     &__row:first-child {
         left: 0;
     }
     &__row:last-child {
         right: 0;
     }
-    &__navbutton {
+    &__navrows {
         height: 100px;
         width: 100%;
-        background: yellow;
         position: absolute;
         background-color: rgba(0, 0, 0, 0);
         display: flex;
@@ -44,6 +34,16 @@
         &:first-child {
             right: 0;
         }
+    }
+    &__row {
+        position: absolute;
+        width: 80px;
+        height: 80px;
+        background-color: rgba(0, 0, 0, 0);
+        border: 0px;
+        color: white;
+        font-size: 50px;
+        font-family: 'Righteous', cursive;
     }
     &__navdots {
         height: 50px;
@@ -53,6 +53,10 @@
     }
     &__dot {
         list-style-type: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
         &-container {
             height: 100%;
             width: 100%;
@@ -61,10 +65,10 @@
             justify-content: center;
         }
         &-button {
-            height: 50px;
-            width: 50px;
+            height: 40px;
+            width: 40px;
             background: blue;
-            border-radius: 25px;
+            border-radius: 20px;
             display: flex;
             justify-content: center;
             align-items: center;
