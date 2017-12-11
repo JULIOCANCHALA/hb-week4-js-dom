@@ -2,6 +2,7 @@ import urls from './gallery_images.js';
 
 class Gallery {
     constructor(node, urls) {
+            this.index = 0 //the index of images start in 0
             this.node = node
             this.urls = urls
             this.elements = {} //starts empty
@@ -9,6 +10,7 @@ class Gallery {
             this.settemplate()
             this.setdots(urls)
             this.setimages(urls)
+            this.setclicks()
         }
         //Una propiedad o método estático no se duplica en cada objeto, sino que existe una única vez en memoria.
 
@@ -30,8 +32,9 @@ class Gallery {
     static get states() {
         return {
             imageselected: 'gallery__image--selected',
-            buttonselected: ' gallery__dot-button--selected',
-            arrowdiseble: 'gallery__row--disable'
+            buttonselected: 'gallery__dot-button--selected',
+            arrowdiseble: 'gallery__row--disable',
+            dotselected: 'gallery__dot-button--selected'
         }
     }
 
@@ -56,30 +59,77 @@ class Gallery {
         this.node.innerHTML = Gallery.templates;
         this.elements.images = this.node.querySelector('.gallery__images'); //add item for elements, container of images
         this.elements.leftrow = this.node.querySelector('.gallery__row--left');
-        this.elements.right = this.node.querySelector('.gallery__row--right');
+        this.elements.rightrow = this.node.querySelector('.gallery__row--right');
         this.elements.dotcontainer = this.node.querySelector('.gallery__dot-container');
     }
 
     setdots(urls) {
         const dots = urls.map(Gallery.dotofcontainer).join('');
         this.elements.dotcontainer.innerHTML = dots;
+        this.elements.dots_item = this.node.querySelectorAll('.gallery__dot-button');
+        this.elements.dots_item[this.index].classList.add(Gallery.states.dotselected);
     }
 
     setimages(urls) {
         const images = urls.map(Gallery.imageofgallery).join('');
         this.elements.images.innerHTML = images;
+        this.elements.images_items = this.node.querySelectorAll('.gallery__image');
+        this.elements.images_items[this.index].classList.add(Gallery.states.imageselected);
     }
 
-
-
-
-    //functions for dinamic gallery
-
-    static cont($urls) {
-
+    setclicks() {
+        this.elements.leftrow.addEventListener('click', this.changeindex.bind(this)); //bind allows us to link the object with this new function that we just created
+        this.elements.rightrow.addEventListener('click', this.changeindex.bind(this));
+        this.elements.dotcontainer.addEventListener('click', this.changeindex.bind(this));
+        this.state_arrows();
     }
 
+    changeindex() {
+        const clickedelement = event.target;
+        if (clickedelement.classList.contains('gallery__row--left')) {
+            this.changeitems(this.index - 1);
+        }
+        if (clickedelement.classList.contains('gallery__row--right')) {
+            this.changeitems(this.index + 1);
+        }
+        if (clickedelement.classList.contains('gallery__dot-button')) {
+            const index = Array.from(this.elements.dots_item).indexOf(clickedelement);
+            this.changeitems(index);
+        }
+    }
+
+    changeitems(index) {
+
+        if (index >= 0 && index < this.elements.dots_item.length) {
+
+            this.elements.images_items[this.index].classList.remove(Gallery.states.imageselected)
+            this.elements.dots_item[this.index].classList.remove(Gallery.states.dotselected);
+
+            this.index = index;
+
+            this.elements.images_items[this.index].classList.add(Gallery.states.imageselected);
+            this.elements.dots_item[this.index].classList.add(Gallery.states.dotselected);
+
+            this.state_arrows();
+        }
+    }
+
+    state_arrows() {
+        this.elements.leftrow.classList.remove(Gallery.states.arrowdiseble);
+        this.elements.rightrow.classList.remove(Gallery.states.arrowdiseble);
+
+        if (this.index === 0) {
+            this.elements.leftrow.classList.add(Gallery.states.arrowdiseble);
+        }
+
+        if (this.index === this.elements.dots_item.length - 1) {
+            this.elements.rightrow.classList.add(Gallery.states.arrowdiseble);
+        }
+    }
 }
 
+
+
+
+
 new Gallery(document.querySelector('.gallery'), urls)
-Gallery.cont(urls);
