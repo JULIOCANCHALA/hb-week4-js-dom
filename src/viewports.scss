@@ -4,13 +4,13 @@ $breakpoints: (
 );
 
 @mixin viewport__medium{
-    @media (mind-width:breackpoint(medium)) {
+    @media (min-width:breackpoint(medium)) {
         @content;
     }
 }
 
 @mixin viewport__large{
-    @media (mind-width:breackpoint(large)) {
+    @media (min-width:breackpoint(large)) {
         @content
     }
 }
