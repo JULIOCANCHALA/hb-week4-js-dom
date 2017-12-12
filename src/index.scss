@@ -1,3 +1,9 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
 @import 'gallery/gallery';
+@import 'movies/movies';
 @import 'menu';
 @import 'viewports';
