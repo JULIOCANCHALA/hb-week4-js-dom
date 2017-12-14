@@ -1,0 +1,14 @@
+.music{
+    &__card{
+        &-grid{
+            width: 80%;
+            height: 100%;
+            background: white;
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            justify-items: center;
+            align-items: center;
+            overflow-y: auto;
+        }
+    }
+}

@@ -1,0 +1,32 @@
+.music{
+    &__menu{
+        width: 20%;
+        min-width: fit-content;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        list-style: none;
+        overflow-y: auto;
+        background-image: url("https://static6.depositphotos.com/1000975/633/i/950/depositphotos_6333213-stock-photo-vintage-music-concept.jpg");
+        &-container{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+        &-button{
+            width: 80% ;
+            min-width: fit-content;
+            font-size: 20px;
+            margin: 5px;
+            pointer-events: auto;
+            cursor: pointer;
+            font-family: 'Poppins', sans-serif;
+            background: rgba(1, 90, 117, 0.9);
+            border: 0px;
+            color: white;
+            border-radius: 5px;
+        }
+    }
+}
