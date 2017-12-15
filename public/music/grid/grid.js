@@ -1,4 +1,4 @@
-export class menuMusic{
+export class gridMusic{
     constructor(node,data){
         this.node=node;
         this.data=data;
@@ -6,6 +6,6 @@ export class menuMusic{
     }
 
     setMenu(){
-        console.log("Menu");
+        console.log("Grid");
     }
 }

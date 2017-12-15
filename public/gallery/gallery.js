@@ -139,4 +139,4 @@ class Gallery {
 
 
 
-new Gallery(document.querySelector('.gallery'), urls)
+new Gallery(document.querySelector('.gallery'), urls)//this goes on the index.js
