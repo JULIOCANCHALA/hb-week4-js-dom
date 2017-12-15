@@ -50,14 +50,15 @@ export default[
         imgUrl:'https://d31fr2pwly4c4s.cloudfront.net/c/6/a/1000509_0_the-wailers_1024.jpg',
     },
     {
-        name:'The Wailers',
-        category:'Reggae',
-        imgUrl:'https://d31fr2pwly4c4s.cloudfront.net/c/6/a/1000509_0_the-wailers_1024.jpg',
-    },
-    {
         name:'Bob Marley',
         category:'Reggae',
         imgUrl:'https://images.fineartamerica.com/images-medium-large-5/original-painting-bob-marley-enxu-zhou.jpg',
+    },
+    {
+        name:'Cultura Profética',
+        category:'Reggae',
+        imgUrl:'https://i.scdn.co/image/67303b156ab972a5aabdd10be88213163b40e8f3',
     }
+
     
 ]

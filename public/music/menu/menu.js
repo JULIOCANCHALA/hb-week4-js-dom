@@ -1,11 +1,20 @@
 export class menuMusic{
-    constructor(node,data){
+    constructor(node,categories){
         this.node=node;
-        this.data=data;
-        this.setMenu();
+        this.categories=categories;
+        this.setMenu(categories);
     }
 
-    setMenu(){
-        console.log("Menu");
+    static templateItemMenu(category){
+        return(
+            `<li class="music__menu-container">
+                <button class="music__menu-button">${category}</button>
+            </li>`
+        )
+    }
+
+    setMenu(categories){
+        const btnsCategories=categories.map(menuMusic.templateItemMenu).join('');
+        this.node.innerHTML=btnsCategories;
     }
 }

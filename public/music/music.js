@@ -8,7 +8,9 @@ class Music{
         this.data=data;
         this.menu;
         this.grid;
-        this.settemplateMusic(data);
+
+        this.filterCategories(data);
+        
     }
     static get templateMusic(){
         return(
@@ -17,11 +19,31 @@ class Music{
         )
     }
 
-    settemplateMusic(data){
+    settemplateMusic(){
         this.node.innerHTML=Music.templateMusic;
-        this.menu=new menuMusic(document.querySelector('.music__menu'),data);
-        this.grid=new gridMusic(document.querySelector('.music__card-grid'),data);
+        //this.grid=new gridMusic(this.node.querySelector('.music__card-grid'),data);     
     }
+
+    setMenu(categories){
+        this.menu=new menuMusic(this.node.querySelector('.music__menu'),categories);
+    }
+    setGrid(data){
+        this.grid=new gridMusic(this.node.querySelector('.music__card-grid'),data);
+    }
+
+    filterCategories(data){
+       const categoriesFull=data.map(function(x){
+           return(x.category);
+       });
+       const categories=categoriesFull.filter(function(item,pos){
+           return categoriesFull.indexOf(item)==pos;
+       })
+       this.settemplateMusic();
+       this.setMenu(categories);
+       this.setGrid(data);
+    }
+
+
 }
 
 new Music(document.querySelector('.music'),data);//this goes on the index.js
