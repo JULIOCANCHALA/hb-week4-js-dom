@@ -15,13 +15,14 @@
             border-radius: 140px;
             transform: rotateY(180deg);
         }
+        &--selected{
+            display: none;
+        }
         &-disc {
             width: 230px;
             height: 230px;
-            animation-name: discMove;
-            animation-duration: 1s;
-            animation-timing-function: ease-in-out;
-            transform: translateX(65px);
+            animation: discMove 1s 0.2s normal ease-in-out forwards;
+            //transform: translateX(65px);
             transition: transform 1s ease-in-out;
             &:hover {
                 transform: translateX(0px);
