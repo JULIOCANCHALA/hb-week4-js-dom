@@ -1,14 +1,26 @@
-.music{
-    &__card{
-        &-grid{
-            width: 80%;
+.music {
+    &__card {
+        &-grid {
+            width: 85%;
             height: 100%;
             background: white;
             display: grid;
-            grid-template-columns: repeat(4,1fr);
+            grid-template-columns: repeat(3, 1fr);
             justify-items: center;
             align-items: center;
             overflow-y: auto;
+            animation-name: gridOpacity;
+            animation-duration: 1.2s;
+            animation-timing-function: ease-in-out;
         }
+    }
+}
+
+@keyframes gridOpacity {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
     }
 }

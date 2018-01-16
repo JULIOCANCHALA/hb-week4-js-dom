@@ -1,6 +1,6 @@
-.music{
-    &__menu{
-        width: 20%;
+.music {
+    &__menu {
+        width: 15%;
         min-width: fit-content;
         height: 100%;
         display: flex;
@@ -9,24 +9,46 @@
         align-items: center;
         list-style: none;
         overflow-y: auto;
-        background-image: url("https://static6.depositphotos.com/1000975/633/i/950/depositphotos_6333213-stock-photo-vintage-music-concept.jpg");
-        &-container{
+        //background-image: url("https://static6.depositphotos.com/1000975/633/i/950/depositphotos_6333213-stock-photo-vintage-music-concept.jpg");
+        background-image: url("http://theheroictwentyeights.com/wp-content/uploads/2016/10/oie_3116452FcR9Aa6e.jpg");
+        background-size: cover;
+        background-position: center;
+        &-container {
             width: 100%;
             display: flex;
             justify-content: center;
+            animation-name: menuOpacity;
+            animation-duration: 1s;
+            animation-timing-function: ease-in-out;
         }
-        &-button{
-            width: 80% ;
+        &-button {
+            width: 80%;
             min-width: fit-content;
-            font-size: 20px;
-            margin: 5px;
+            font-size: 22px;
+            margin: 3px;
             pointer-events: auto;
             cursor: pointer;
             font-family: 'Poppins', sans-serif;
-            background: rgba(1, 90, 117, 0.9);
+            background: #8e1307;
             border: 0px;
             color: white;
-            border-radius: 5px;
+            border-radius: 0px;
+            transition: background 0.4s ease-in-out, border-radius 0.3s ease-in-out;
+            &:hover {
+                background: #6a7916;
+                border-radius: 15px;
+            }
+            &--reset {
+                background: rgba(241, 113, 28, 0.9);
+            }
+        }
+    }
+    @keyframes menuOpacity {
+        0% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
         }
     }
 }

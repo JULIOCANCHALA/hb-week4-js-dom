@@ -1,39 +1,63 @@
-.music{
-    &__card{
-        width: 200px;
-        height: 200px;
+.music {
+    &__card {
+        width: 250px;
+        height: 250px;
         position: relative;
         display: flex;
         flex-direction: column;
         justify-content: center;
-        border-radius: 5px;
-        overflow: hidden;
-        margin: 10px;
-
-        &-info{
+        border-radius: 4px;
+        box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.35);
+        //overflow: hidden;
+        margin: 30px;
+        cursor: pointer;
+        &--rotated {
+            border-radius: 140px;
+            transform: rotateY(180deg);
+        }
+        &-disc {
+            width: 230px;
+            height: 230px;
+            animation-name: discMove;
+            animation-duration: 1s;
+            animation-timing-function: ease-in-out;
+            transform: translateX(65px);
+            transition: transform 1s ease-in-out;
+            &:hover {
+                transform: translateX(0px);
+            }
+        }
+        &-info {
             position: absolute;
             width: 100%;
             z-index: 1;
-            background: rgba(72, 90, 81, 0.8);
+            background: rgba(255, 255, 255, 0.8);
         }
-
-        &-name{
+        &-name {
             width: 100%;
-            font-size: 30px;
-            color: white;
+            font-size: 21px;
+            color: black;
             text-align: center;
             font-family: 'Muli', sans-serif;
         }
-        &-category{
+        &-category {
             font-size: 20px;
-            color: white;
+            color: rgb(228, 69, 175);
             text-align: center;
             font-family: 'Poppins', sans-serif;
         }
-        &-img{
+        &-img {
             width: 100%;
             height: 100%;
             position: absolute;
+        }
+    }
+    @keyframes discMove {
+        0% {
+            transform: translateX(0px);
+        }
+        100% {
+            transform: translateX(65px);
         }
     }
 }
