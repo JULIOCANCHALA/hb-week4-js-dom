@@ -17,9 +17,7 @@
             width: 100%;
             display: flex;
             justify-content: center;
-            animation-name: menuOpacity;
-            animation-duration: 0.5s;
-            animation-timing-function: ease-in-out;
+            // animation: menuOpacity 0.5s normal ease-in-out forwards;
         }
         &-button {
             width: 80%;

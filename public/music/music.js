@@ -7,11 +7,11 @@ class Music {
         this.node = node;
         this.menu;
         this.grid;
-        this.menu_list;
-        this.categorySelected;
+        // this.menu_list;
+        // this.categorySelected;
 
         this.filterCategories(data);
-        this.getCategory(data);
+        // this.getCategory(data);
 
     }
 
@@ -20,19 +20,6 @@ class Music {
             `<ul class="music__menu"></ul>
             <ul class="music__card-grid"></ul>`
         )
-    }
-
-    settemplateMusic() {
-        this.node.innerHTML = Music.templateMusic;
-        //this.grid=new gridMusic(this.node.querySelector('.music__card-grid'),data);     
-    }
-
-    setMenu(categories) {
-        this.menu = new menuMusic(this.node.querySelector('.music__menu'), categories);
-    }
-
-    setGrid(data) {
-        this.grid = new gridMusic(this.node.querySelector('.music__card-grid'), data);
     }
 
     filterCategories(data) {
@@ -44,11 +31,28 @@ class Music {
             return categoriesFull.indexOf(item) == pos;
         })
         this.settemplateMusic();
-        this.setMenu(categories);
         this.setGrid(data);
+        this.setMenu(categories);
     }
 
-    getCategory(data) {
+    settemplateMusic() {
+        this.node.innerHTML = Music.templateMusic;
+    }
+
+    setMenu(categories) {
+        this.menu = new menuMusic(this.node.querySelector('.music__menu'), categories,(categorySelected)=>{
+            // console.log(categorySelected+" on Music");
+            this.grid.renovate(categorySelected);
+        });
+    }
+
+    setGrid(data) {
+        this.grid = new gridMusic(this.node.querySelector('.music__card-grid'), data);
+    }
+
+
+
+/*     getCategory(data) {
         this.menu_list = this.node.querySelector('.music__menu');
         this.menu_list.addEventListener('click', function(btn) {
             if (btn.target.classList.contains('music__menu-button')) {
@@ -57,9 +61,9 @@ class Music {
                 //console.log(categorySelected);
             }
         }.bind(this))
-    }
+    } */
 
-    renovateGrid(categorySelected, data) {
+/*     renovateGrid(categorySelected, data) {
         const data_filter = data.filter(function(info) {
             if (categorySelected == info.category) {
                 return info
@@ -71,7 +75,7 @@ class Music {
             this.setGrid(data_filter);
         }
 
-    }
+    } */
 
 
 

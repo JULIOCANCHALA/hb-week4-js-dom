@@ -1,8 +1,11 @@
 export class menuMusic {
-    constructor(node, categories) {
+    constructor(node, categories,returnCategory) {
         this.node = node;
         this.categories = categories;
+        this.returnCategory=returnCategory;
+
         this.setMenu(categories);
+        this.setClick();
 
         //this.setClick();
     }
@@ -17,14 +20,22 @@ export class menuMusic {
 
     setMenu(categories) {
         const btnsCategories_aux = categories.map(menuMusic.templateItemMenu).join('');
-
         const btnreset = '<li class="music__menu-container"><button class="music__menu-button music__menu-button--reset">Reset</button></li>';
         const btnsCategories = btnsCategories_aux.concat(btnreset);
-        console.log(btnsCategories);
+        // console.log(btnsCategories);
         this.node.innerHTML = btnsCategories;
     }
 
-    setClick() {
+    setClick(){
+        this.node.addEventListener('click',(btn)=>{
+            if(btn.target.classList.contains('music__menu-button')){
+                const categorySelected=btn.target.textContent
+                this.returnCategory(categorySelected);
+            }
+        })
+    }
+
+/*     setClick() {
         this.node.addEventListener('click', function(x) {
             const btnSelected = x.target;
             if (btnSelected.classList.contains('music__menu-button')) {
@@ -32,6 +43,6 @@ export class menuMusic {
                 return (btnSelected.textContent);
             }
         })
-    }
+    } */
 
 }
