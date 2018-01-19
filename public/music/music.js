@@ -23,7 +23,7 @@ class Music {
     }
 
     filterCategories(data) {
-        data = data.sort(function() { return Math.random() - 0.5 });
+        // data = data.sort(function() { return Math.random() - 0.5 });
         const categoriesFull = data.map(function(x) {
             return (x.category);
         });

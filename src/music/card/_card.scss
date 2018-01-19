@@ -9,7 +9,7 @@
         //overflow: hidden;
         margin: 30px;
         cursor: pointer;
-        // animation: viewCard 0.35s normal ease-in-out forwards;
+        animation: viewCard 0.35s normal ease-in-out forwards;
         &-container{
             width: 100%;
             height: 100%;
@@ -35,7 +35,7 @@
             display: flex;
             flex-direction: column;
             justify-content: space-evenly;
-            background-color:black;
+            background-color:#434544;
             backface-visibility: hidden;
             transform: rotateY(180deg);
             z-index: 2;
@@ -46,20 +46,20 @@
                 margin: 0px 10px;
             }
             &-summary{
-                color: #ECF0F1;
+                color: #D9AE4C;
                 font-size: 14px;
                 margin: 0px 10px;
                 text-align: center;
                 font-family: 'Dosis', sans-serif;
             }
             &-data{
-                color: #2980B9;
+                color: #F6F2E4;
                 font-size: 13px;
                 margin-left: 5px;
                 font-family: 'Dosis', sans-serif;
             }
             &-title{
-                color: #E74C3C;
+                color: #963933;
                 font-size: 13px;
                 font-family: 'Righteous', cursive;
             }
@@ -70,7 +70,7 @@
         &-disc {
             width: 230px;
             height: 230px;
-            // animation: discMove 1s normal ease-in-out forwards;
+            animation: discMove 1s normal ease-in-out forwards;
             transform: translateX(65px);
             position: absolute;
             margin-top: auto;

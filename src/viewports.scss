@@ -1,16 +1,16 @@
 $breakpoints: (
 	medium: 640px,
-	large: 1024px
+    large: 1024px
 );
 
 @mixin viewport__medium{
-    @media (min-width:breackpoint(medium)) {
+    @media (min-width:breakpoints(medium)) {
         @content;
     }
 }
 
 @mixin viewport__large{
-    @media (min-width:breackpoint(large)) {
+    @media (min-width:breakpoints(large)) {
         @content
     }
 }
