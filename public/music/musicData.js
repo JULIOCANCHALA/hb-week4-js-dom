@@ -7,7 +7,8 @@ export default [{
         yearsActive: '1985–present',
         members: 'Slash, Axl Rose, Duff McKagan, Melissa Reese, ...',
     },
-     {
+
+    {
         name: 'Iron Maiden',
         category: 'Rock',
         imgUrl: 'https://i2.wp.com/musictrajectory.com/wp-content/uploads/2011/08/iron-maiden-run-to-the-hills-single-cover.jpg',
@@ -105,7 +106,5 @@ export default [{
         origin: '',
         yearsActive: '',
         members: '',
-    } 
-
-
+    }
 ]

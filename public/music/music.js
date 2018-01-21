@@ -2,6 +2,7 @@ import data from './musicData.js';
 import { menuMusic } from './menu/menu.js';
 import { gridMusic } from './grid/grid.js';
 
+
 class Music {
     constructor(node, data) {
         this.node = node;
@@ -12,6 +13,7 @@ class Music {
 
         this.filterCategories(data);
         // this.getCategory(data);
+
 
     }
 
@@ -40,7 +42,7 @@ class Music {
     }
 
     setMenu(categories) {
-        this.menu = new menuMusic(this.node.querySelector('.music__menu'), categories,(categorySelected)=>{
+        this.menu = new menuMusic(this.node.querySelector('.music__menu'), categories, (categorySelected) => {
             // console.log(categorySelected+" on Music");
             this.grid.renovate(categorySelected);
         });
@@ -49,38 +51,8 @@ class Music {
     setGrid(data) {
         this.grid = new gridMusic(this.node.querySelector('.music__card-grid'), data);
     }
-
-
-
-/*     getCategory(data) {
-        this.menu_list = this.node.querySelector('.music__menu');
-        this.menu_list.addEventListener('click', function(btn) {
-            if (btn.target.classList.contains('music__menu-button')) {
-                const categorySelected = btn.target.textContent;
-                this.renovateGrid(categorySelected, data);
-                //console.log(categorySelected);
-            }
-        }.bind(this))
-    } */
-
-/*     renovateGrid(categorySelected, data) {
-        const data_filter = data.filter(function(info) {
-            if (categorySelected == info.category) {
-                return info
-            }
-        })
-        if (categorySelected == 'Reset') {
-            this.setGrid(data);
-        } else {
-            this.setGrid(data_filter);
-        }
-
-    } */
-
-
-
-
-
 }
 
+
+//console.log(data[0].name);
 new Music(document.querySelector('.music'), data); //this goes on the index.js
