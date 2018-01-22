@@ -5,6 +5,21 @@ export class gridMusic {
         this.node = node;
         this.data = data;
         this.setGrid(data, node);
+        this.clicked();
+    }
+
+    clicked() {
+        var i
+        this.node.addEventListener('click', function(event) {
+            if (event.target.classList.contains('music__card-grid')) {
+                for (i = 0; i < this.data.length; i++) {
+                    const idCard = ".".concat(this.data[i].name.toString().replace(/ /g, ""))
+                    const card = this.node.querySelector(idCard)
+                    card.classList.remove('music__card-container--rotated')
+                }
+            }
+        }.bind(this))
+
     }
 
     setGrid(data) {
@@ -47,6 +62,12 @@ export class gridMusic {
                 }
             }
         }
+        var i
+        const cardsItemsContainer = this.node.querySelectorAll('.music__card-container')
+        for (i = 0; i < cardsItemsContainer.length; i++) {
+            cardsItemsContainer[i].classList.remove('music__card-container--rotated')
+        }
+
     }
 
 

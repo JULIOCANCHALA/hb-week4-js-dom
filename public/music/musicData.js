@@ -18,7 +18,7 @@ export default [{
         members: '',
     },
     {
-        name: 'AC/DC',
+        name: 'AC DC',
         category: 'Rock',
         imgUrl: 'https://images-na.ssl-images-amazon.com/images/I/71pC173hqVL._SL1500_.jpg',
         info: '',

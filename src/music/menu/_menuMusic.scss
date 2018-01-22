@@ -23,21 +23,23 @@
             width: 80%;
             min-width: fit-content;
             font-size: 22px;
-            margin: 3px;
+            margin: 5px;
             pointer-events: auto;
             cursor: pointer;
             font-family: 'Poppins', sans-serif;
-            background: #8e1307;
-            border: 0px;
+            background: #242020;
             color: white;
+            border: 0px;
             border-radius: 0px;
-            transition: background 0.4s ease-in-out, border-radius 0.3s ease-in-out;
+            transition: background 0.2s cubic-bezier(0.4, 0, 1, 1), border-radius 0.3s ease-in-out;
+            box-shadow: 0px 0px 5px 1px rgba(255, 255, 255, 1);
             &:hover {
-                background: #6a7916;
+                background: #FFF200;
                 border-radius: 15px;
+                color: #242020
             }
             &--reset {
-                background: rgba(241, 113, 28, 0.9);
+                color: #FFF200;
             }
         }
     }

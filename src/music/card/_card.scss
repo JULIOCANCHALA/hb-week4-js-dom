@@ -5,72 +5,85 @@
         display: flex;
         border-radius: 4px;
         position: relative;
-        // box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.35);
         //overflow: hidden;
         margin: 30px;
         cursor: pointer;
         animation: viewCard 0.35s normal ease-in-out forwards;
-        &-container{
+        &-container {
             width: 100%;
             height: 100%;
             position: absolute;
             display: flex;
             transform-style: preserve-3d;
             transform: rotateY(0deg);
-            transition: transform 1s ease-in-out;
-            &--rotated{
+            transition: transform 0.7s ease-out;
+            &--rotated {
                 transform: rotateY(180deg);
             }
         }
-        &-front{
+        &-front {
             position: absolute;
             width: 100%;
             height: 100%;
             backface-visibility: hidden;
+            box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.35);
         }
-        &-back{
+        &-back {
             position: absolute;
             width: 100%;
             height: 100%;
             display: flex;
             flex-direction: column;
             justify-content: space-evenly;
-            background-color:#434544;
+            //background-color: #434544;
             backface-visibility: hidden;
             transform: rotateY(180deg);
+            box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.35);
+            overflow: hidden;
             z-index: 2;
-            &-contentInfo{
-                width: fit-content;
-                height: fit-content;
+            &-contentInfo {
                 display: flex;
-                margin: 0px 10px;
+                z-index: 1;
+                height: 20%;
+                width: unset;
+                align-items: center;
+                background-color: rgba(0, 0, 0, 0.38);
+                flex-direction: column;
             }
-            &-summary{
-                color: #D9AE4C;
-                font-size: 14px;
-                margin: 0px 10px;
+            &-summary {
+                color: #242020;
+                font-size: 15px;
                 text-align: center;
                 font-family: 'Dosis', sans-serif;
+                z-index: 1;
+                background-color: #fff200db;
+                height: 40%;
+                align-items: center;
+                display: flex;
+                padding: 10px;
+                margin-bottom: 2px;
             }
-            &-data{
-                color: #F6F2E4;
-                font-size: 13px;
+            &-data {
+                color: white;
+                font-size: 14px;
                 margin-left: 5px;
                 font-family: 'Dosis', sans-serif;
+                text-align: center;
             }
-            &-title{
-                color: #963933;
-                font-size: 13px;
-                font-family: 'Righteous', cursive;
+            &-title {
+                color: #fff200;
+                font-size: 14px;
+                font-family: 'Poppins', sans-serif;
+                text-align: center;
             }
         }
-        &--invisible{
+        &--invisible {
             display: none;
         }
         &-disc {
             width: 230px;
             height: 230px;
-            animation: discMove 1s normal ease-in-out forwards;
+            animation: discMove 0.6s normal ease-in-out forwards;
             transform: translateX(65px);
             position: absolute;
             margin-top: auto;
@@ -93,6 +106,7 @@
             margin-bottom: auto;
             top: 0;
             bottom: 0;
+            backface-visibility: hidden;
         }
         &-name {
             width: 100%;
@@ -111,6 +125,9 @@
             width: 100%;
             height: 100%;
             position: absolute;
+            &--back {
+                filter: blur(5px);
+            }
         }
     }
     @keyframes discMove {
