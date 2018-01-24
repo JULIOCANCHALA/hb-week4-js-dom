@@ -5,20 +5,24 @@
     "main": "index.js",
     "private": true,
     "scripts": {
+
         "serve": "http-server -c-1",
         "build": "npm-run-all clean lint:** --parallel build:css",
+        "build:webpack": "webpack ./src/music/music.js ./src/music/bundle.js",
         "build:css": "node-sass src/index.scss public/style.css --output-style compressed",
         "clean": "rm -rf public/",
+        "copy:html": "copy './src/**/**.html' public",
+        "copy:js": "copy './src/**/**.js' public",
         "copyfiles:html": "copyfiles -u 1 src/**/*.html public",
         "copyfiles:js": "copyfiles -u 1 src/**/*.js public",
         "lint": "npm-run-all lint:**",
         "lint:css": "stylelint 'src/**/*.scss' --config .stylelintrc --syntax scss",
         "lint:js": "standard 'src/**/*.js'",
-        "watch:html": "onchange 'src/**/*.html' -- npm run copyfiles:html",
+        "watch:html": "onchange 'src/**/*.html' -- npm run copy:html",
         "watch:css": "npm run build:css -- -w --source-map true",
-        "watch:js": "onchange 'src/**/*.js' -- npm-run-all lint:js copyfiles:js",
+        "watch:js": "onchange 'src/**/*.js' -- npm-run-all lint:js copy:js",
         "start:build": "npm-run-all build serve",
-        "start": "npm-run-all copyfiles:** build:css --parallel watch:** serve",
+        "start": "npm-run-all copy:** build:css --parallel watch:** serve",
         "precommit": "npm run lint"
     },
     "repository": {
@@ -42,6 +46,7 @@
         "standard": "^10.0.3",
         "stylelint": "^8.3.1",
         "stylelint-config-recommended-scss": "^2.0.0",
-        "stylelint-scss": "^2.1.0"
+        "stylelint-scss": "^2.1.0",
+        "webpack": "^3.10.0"
     }
 }
