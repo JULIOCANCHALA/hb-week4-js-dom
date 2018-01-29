@@ -19,10 +19,13 @@
         "lint:css": "stylelint 'src/**/*.scss' --config .stylelintrc --syntax scss",
         "lint:js": "standard 'src/**/*.js'",
         "watch:html": "onchange 'src/**/*.html' -- npm run copy:html",
+        "watchW:html": "onchange 'src/**/*.html' -- npm run copyfiles:html",
         "watch:css": "npm run build:css -- -w --source-map true",
         "watch:js": "onchange 'src/**/*.js' -- npm-run-all lint:js copy:js",
+        "watchW:js": "onchange 'src/**/*.js' -- npm-run-all lint:js copyfiles:js",
         "start:build": "npm-run-all build serve",
-        "start": "npm-run-all copy:** build:css --parallel watch:** serve",
+        "startW": "npm-run-all copyfiles:** build:css --parallel watch:** serve",
+        "start": "npm-run-all copy:** build:css --parallel watchW:** serve",
         "precommit": "npm run lint"
     },
     "repository": {
